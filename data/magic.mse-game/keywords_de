@@ -1709,8 +1709,8 @@ keyword:
 	keyword: Blutrausch
 	match: Blutrausch
 	mode: pseudo
-	rules: 
-	#example: Rubblehulk
+	rules: [Kosten], wirf diese Karte ab: Eine angreifende Kreatur deiner Wahl erhält +{card.power}/+{card.toughness} bis zum Ende des Zuges.
+	#example: Ghor-Clan Rampager
 
 keyword:
 	#english keyword: Channel
@@ -1781,8 +1781,8 @@ keyword:
 	keyword: Domäne
 	match: Domäne
 	mode: pseudo
-	rules: 
-	#example: Zar Ojanen, Scion of Efrava
+	rules: [Effekt], wobei X gleich der Anzahl an Standardlandtypen unter den Ländern ist, die du kontrollierst.
+	#example: Territorial Kavu
 
 keyword:
 	#english keyword: Eminence
@@ -1813,16 +1813,16 @@ keyword:
 	keyword: Wildheit
 	match: Wildheit
 	mode: pseudo
-	rules: 
-	#example: Flamewake Phoenix
+	rules: Falls du eine Kreatur mit Stärke 4 oder mehr kontrollierst, [Effekt].
+	#example: Barrage of Boulders
 
 keyword:
 	#english keyword: Formidable
 	keyword: Gewaltig
 	match: Gewaltig
 	mode: pseudo
-	rules: 
-	#example: Dragon-Scarred Bear
+	rules: Falls die Kreaturen, die du kontrollierst, eine Gesamtstärke von 8 oder mehr haben, [Effekt].
+	#example: Sabertooth Outrider
 
 #keyword:
 #	#english keyword: Gotcha
@@ -1893,8 +1893,8 @@ keyword:
 	keyword: Verwandtschaft
 	match: Verwandtschaft
 	mode: pseudo
-	rules: 
-	#example: Nightshade Schemers
+	rules: Zu Beginn deines Versorgungssegments kannst du dir die oberste Karte deiner Bibliothek anschauen. Hat sie mindestens einen Kreaturentyp mit CARDNAME gemeinsam, kannst du sie offen vorzeigen. Falls du dies tust, [Effekt].
+	#example: Ink Dissolver
 
 keyword:
 	#english keyword: Landfall
@@ -1909,24 +1909,24 @@ keyword:
 	keyword: Leutnant
 	match: Leutnant
 	mode: pseudo
-	rules: 
-	#example: Angelic Field Marshal
+	rules: Falls du deinen Kommandeur kontrollierst, [Effekt].
+	#example: Loyal Guardian
 
 keyword:
 	#english keyword: Magecraft
 	keyword: Magiefertigkeit
 	match: Magiefertigkeit
 	mode: pseudo
-	rules: 
-	#example: Prismari Pledgemage
+	rules: Immer wenn du einen Spontanzauber oder eine Hexerei wirkst oder kopierst, [Effekt].
+	#example: Clever Lumimancer
 
 keyword:
 	#english keyword: Metalcraft
 	keyword: Metallkunst
 	match: Metallkunst
 	mode: pseudo
-	rules: 
-	#example: Spire Serpent
+	rules: Falls du drei oder mehr Artefakte kontrollierst, [Effekt].
+	#example: Vedalken Infiltrator
 
 keyword:
 	#english keyword: Morbid
@@ -1965,8 +1965,8 @@ keyword:
 	keyword: Überfall
 	match: Überfall
 	mode: pseudo
-	rules: 
-	#example: Raiders' Wake
+	rules: Falls du in diesem Zug mit mindestens einer Kreatur angegriffen hast, [Effekt].
+	#example: Admiral's Order
 
 keyword:
 	#english keyword: Rally
@@ -2029,8 +2029,8 @@ keyword:
 	keyword: Totenwelt
 	match: Totenwelt
 	mode: pseudo
-	rules: 
-	#example: Mausoleum Secrets
+	rules: [Effekt], wobei X gleich der Anzahl an Kreaturenkarten in deinem Friedhof ist.
+	#example: Hatchery Spider
 
 keyword:
 	#english keyword: Will of the council
@@ -2265,3 +2265,58 @@ keyword:
 	reminder: Sie sind Artefakte mit „<sym-auto>T</sym-auto>, opfere dieses Artefakt: Schicke die oberste Karte deiner Bibliothek ins Exil. Du kannst sie in diesem Zug spielen. Akiviere diese Fähigkeit wie eine Hexerei."
 	#example: Commander Sofia Daguerre
 
+# Outlaws of Thunder Junction
+keyword:
+	#english keyword: commit a crime
+	keyword: Verbrechen
+	match: Verbrechen
+	mode: expert
+	reminder: Es ist ein Verbrechen, einen Gegner, Karten in seinem Friedhof oder etwas unter seiner Kontrolle als Ziel zu bestimmen.
+	#example: Marauding Sphinx
+
+keyword:
+	#english keyword: Plot
+	keyword: Aushecken
+	match: Aushecken <atom-param>Kosten</atom-param>
+	mode: expert
+	reminder: Du kannst {param1} bezahlen und diese Karte aus deiner Hand ins Exil schicken. Wirke sie in einem späteren Zug wie eine Hexerei, ohne ihre Manakosten zu bezahlen. Spiele Aushecken wie eine Herexei.
+	#example: Cunning Coyote
+	
+keyword:
+	#english keyword: becomes plotted
+	keyword: ausgeheckt
+	match: ausgeheckt
+	reminder: Du kannst sie in einem späteren Zug wie Hexerei wirken, ohne ihre Manakosten zu bezahlen.
+	#example: Kellan Joins Up
+
+keyword:
+	#english keyword: Saddle
+	keyword: Aufsatteln
+	match: Aufsatteln <atom-param>Nummer</atom-param>
+	mode: expert
+	reminder: Tappe eine beliebige Anzahl anderer Kreaturen, die du kontrollierst und die zusammen Stärke {param1} oder mehr haben: Dieses Reittier ist bis zum Ende des Zuges gesattelt. Spiele Aufsatteln wie eine Herexei.
+	#example: Rambling Possum
+
+keyword:
+	#english keyword: Spree
+	keyword: Exzess
+	match: Exzess
+	mode: expert
+	reminder: Bestimme eines oder mehrere als zusätz-liche Kosten.
+	#example: Caught in the Crossfire
+
+keyword:
+	#english keyword: Outlaw
+	keyword: Gesetzlose
+	match: gesetzlose
+	mode: expert
+	reminder: Assassinen, Hexenmeister, Piraten, Räuber und Söldner sind Gesetzlose.
+	#example: Caught in the Crossfire
+
+keyword:
+	#english keyword: Outlaws
+	keyword: Gesetzlosen
+	match: gesetzlosen
+	mode: expert
+	reminder: Assassinen, Hexenmeister, Piraten, Räuber und Söldner sind Gesetzlose.
+	#example: Caught in the Crossfire
