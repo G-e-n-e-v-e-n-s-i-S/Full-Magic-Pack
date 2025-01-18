@@ -1,7 +1,7 @@
 #### To use this include in a template, add the following in the template headers:
 depends on:
 	package:			magic-modules.mse-include
-	version:			2024-05-20
+	version:			2024-10-01
 
 #### Add the following line, indented by one tab, in the init script section:
 	include file: /magic-modules.mse-include/loyalty/init_script
@@ -10,17 +10,31 @@ depends on:
 include file: /magic-modules.mse-include/loyalty/styling_fields
 
 #### Also add this, unindented, before the card style section:
-include file: /magic-modules.mse-include/information/card_fields
+include file: /magic-modules.mse-include/loyalty/card_fields
+
+#### Sub-include files are also available for
+#### Only the ability fields
+include file: /magic-modules.mse-include/loyalty/ability_fields
+#### Only the ability separator fields
+include file: /magic-modules.mse-include/loyalty/separator_fields
+#### Only the ability background striping fields
+include file: /magic-modules.mse-include/loyalty/stripe_fields
+#### Only the ability formatting styling options
+include file: /magic-modules.mse-include/loyalty/styling_formatting
+#### Only the ability recoloring styling options
+include file: /magic-modules.mse-include/loyalty/styling_recoloring
 
 #### Customization
 #### Optionally, you can adjust appearance by defining the following functions in the init script:
+
+#### To conditionally enable loyalty boxes, for combined planeswalker/nonwalker templates
+loyalty_has_abilities_1 := { mainframe_walker() }
 
 #### To change which face of the card the boxes go on:
 loyalty_face_1 := { 1 }
 
 #### To change which card field the boxes snap to,
 #### 1 is for card.text, 2 for card.text_2, and 3 for card.text_3
-#### This text field and it's watermark should have z index greater than 1100
 loyalty_text_field_1 := { 1 }
 
 #### This text field's font color should be:

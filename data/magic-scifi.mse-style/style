@@ -6,7 +6,7 @@ icon: card-sample.png
 installer group: magic/m15 style/normal cards
 position hint: 052
 
-version: 2020-09-04
+version: 2024-05-30
 depends on:
 	package: magic.mse-game
 	version: 2020-04-25
@@ -14,11 +14,8 @@ depends on:
 	package: magic-default-image.mse-include
 	version: 2007-09-23
 depends on:
-	package: magic-watermarks.mse-include
-	version: 2007-09-23
-depends on:
-	package: magic-identity-new.mse-include
-	version: 2012-01-22
+	package: magic-modules.mse-include
+	version: 2024-10-01
 depends on:
 	package: magic-mana-large.mse-symbol-font
 	version: 2007-09-23
@@ -47,8 +44,8 @@ init script:
 	#Should multicolor lands with basic land types have a colored name?
 	mask_multi_land_with_color := { styling.colored_multicolor_land_name }
 	
-	base_template_prefix := [card: "" sync: "sync/" miracle: "miracles/" promo: "promo/" crown: "legend/" cons:"conspiracy/" curtain: "curtains/" fnm: "fnm/", fnmpt: "paradox/", map: "maps/" energy: "energies/", mappt: "maps/" pt: "", slide: "masks/", slide2: "masks/", arrow: "arrows/", arrow2: "arrows/", arrow3: "arrows/", season: "season/" stamp: "" identity: "/magic-identity-new.mse-include/"]
-	shifted_template_prefix := [card: "shifted/" sync: "sync/" miracle: "shifted/" promo: "promo/" crown: "shifted/" cons:"conspiracy/" curtain: "curtains/" fnm:"fnm/", fnmpt: "paradox/", map: "maps/" energy: "energies/", mappt: "maps/" pt: "shifted/", slide: "shifted/", slide2: "shifted/", arrow: "arrows/", arrow2: "arrows/", arrow3: "arrows/", season: "season/" stamp: "shifted/" identity: "/magic-identity-new.mse-include/"]
+	base_template_prefix := [card: "" sync: "sync/" miracle: "miracles/" promo: "promo/" crown: "legend/" cons:"conspiracy/" curtain: "curtains/" fnm: "fnm/", fnmpt: "paradox/", map: "maps/" energy: "energies/", mappt: "maps/" pt: "", slide: "masks/", slide2: "masks/", arrow: "arrows/", arrow2: "arrows/", arrow3: "arrows/", season: "season/" stamp: "" identity: "/magic-modules.mse-include/indicators/"]
+	shifted_template_prefix := [card: "shifted/" sync: "sync/" miracle: "shifted/" promo: "promo/" crown: "shifted/" cons:"conspiracy/" curtain: "curtains/" fnm:"fnm/", fnmpt: "paradox/", map: "maps/" energy: "energies/", mappt: "maps/" pt: "shifted/", slide: "shifted/", slide2: "shifted/", arrow: "arrows/", arrow2: "arrows/", arrow3: "arrows/", season: "season/" stamp: "shifted/" identity: "/magic-modules.mse-include/indicators/"]
 	template_prefix := { if is_shifted() then shifted_template_prefix else base_template_prefix }
 	template_suffix := [card: "card.jpg" sync: "sync.jpg" miracle: "miracle.png" promo: "card.jpg" crown: "crown.png" cons:"cons.png" curtain: "card.png" fnm:"card.png", fnmpt: "pt.png", map: "card.png", energy: "card.png", mappt: "pt.png" pt: "pt.png", slide: "slide.png", slide2: "slide2.png", stamp: "stamp.jpg", arrow: "arrow.png", arrow2: "arrow2.png", arrow3: "arrow3.png", season: "flag.png" identity: "identity.png"]
 	template      := { crown_lead(type) + template_prefix()[type] + input + crown_follow(type) + template_suffix[type] }
@@ -107,8 +104,6 @@ init script:
 	
 	# Is the card a promo card?
 	is_promo := { styling.promo }
-	is_stamped := {styling.use_holofoil_stamps and (card.rarity ==  "rare" or card.rarity == "mythic rare")}
-	has_identity := { styling.color_indicator_dot }
 	shrink_type := {if styling.shrink_typeline_text != "" then to_int(styling.shrink_typeline_text) else if length(remove_tags(card.type)) > 41 then 2 else if length(remove_tags(card.type)) > 38 then 1 else 0 }
 	shrink_name := {if styling.shrink_name_text != "" then to_int(styling.shrink_name_text) else 0 }
 	is_unsorted := {styling.remove_from_autocount}
@@ -191,6 +186,7 @@ init script:
 		else ""
 	}
 	card_shape := {if is_leveler() then "leveler" else "normal"}
+	watermark_include := "/magic-modules.mse-include/watermarks"
 ############################################################## Set info fields
 set info style:
 	symbol:
@@ -395,6 +391,8 @@ styling style:
 		render style: checklist
 		direction: vertical
 ############################################################## Card fields
+include file: /magic-modules.mse-include/corners/card_fields
+include file: /magic-modules.mse-include/card-symbols/card_fields
 card style:
 	############################# Background stuff
 	border color:
@@ -463,15 +461,6 @@ card style:
 		always symbol: true
 		z index: 2
 		padding top: 0
-	card symbol:
-		left: {if card.card_symbol=="none" then 20 else 30}
-		top: 29
-		height: 20
-		width: 14
-		z index: 1
-		render style: image
-		choice images:
-			tombstone: tombstone.png
 	############################# Image
 	image:
 		left: { if is_clear() or is_map() or is_expanded_art() or is_puma() then 0 else if is_full_art() then 23 else if is_mutate() then 22 else 29}
@@ -480,13 +469,13 @@ card style:
 		height:	{if is_clear() or is_expanded_art() then 523 else if is_map() then 241 else if is_puma() then 265 else if is_full_art() then 423 else if is_mutate() then 334 else 232}
 		z index: 1
 		default: {default_image(card.card_color)}
-		mask: { if is_clear() then "image_mask.png" else if is_thbland() then "cornermask.png" else if is_puma() then "puma_mask.png" else if is_expanded_art() then expanded_mask() else if is_full_art() then "promo/image_mask" + (if is_rare() and styling.use_holofoil_stamps then "_rare") + ".png" else if is_mutate() then "mutate_mask.png" else ""}
+		mask: { if is_clear() then "image_mask.png" else if is_thbland() then "cornermask.png" else if is_puma() then "puma_mask.png" else if is_expanded_art() then expanded_mask() else if is_full_art() then "promo/image_mask" + (if is_stamped() then "_rare") + ".png" else if is_mutate() then "mutate_mask.png" else ""}
 	mainframe image:
 		left: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).0 else "0"}
 		top: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).1 else "0"}
 		width: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).2 else "0"}
 		height: {if comma_count(styling.popout_image_style) == ",,,," then split_text(match:",", styling.popout_image_style).3 else "0"}
-		z index: 8
+		z index: 1010
 	############################# Card type
 	indicator:
 		left: { if is_map() then 18  else if is_season() then 43 else 31}
@@ -495,12 +484,12 @@ card style:
 		height: 17
 		z index: 2
 		render style: image
-		visible: { styling.color_indicator_dot }
-		image: { card_identity() }
+		visible: { has_identity() }
+		image: { module_identity() }
 	type:
-		left: { if is_map() then 85 else if is_season() then (if styling.color_indicator_dot then "64" else "44") else if styling.color_indicator_dot then "52" else "32" }
+		left: { if is_map() then 85 else if is_season() then (if has_identity() then "64" else "44") else if has_identity() then "52" else "32" }
 		top: { (if is_map() then 297.5 else if is_clear() then 294 else if is_thbland() then 444 else if is_full_art() then 329 else 296) + shrink_type() }
-		width: { if is_map() then 205 else (if styling.color_indicator_dot then "290" else "310") - (if card_style.rarity.width == 0 then 0 else max(22,card_style.rarity.content_width)) - (if is_season() then 12 else 0) }
+		width: { if is_map() then 205 else (if has_identity() then "290" else "310") - (if card_style.rarity.width == 0 then 0 else max(22,card_style.rarity.content_width)) - (if is_season() then 12 else 0) }
 		height: { (if is_map() then 18 else 20) - shrink_type() }
 		alignment: { if is_map() then "center top shrink-overflow" else "top shrink-overflow"}
 		z index: 5
@@ -521,38 +510,7 @@ card style:
 		z index: 5
 		render style: image
 		alignment: middle right
-		choice images:
-			# Images based on the set symbol
-			basic land:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "c.png"
-					else if styling.inverted_common_symbol then symbol_variation(symbol: set.symbol, variation: "invertedcommon")
-					else symbol_variation(symbol: set.symbol, variation: "common")
-			common:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "c.png"
-					else if styling.inverted_common_symbol then symbol_variation(symbol: set.symbol, variation: "invertedcommon")
-					else symbol_variation(symbol: set.symbol, variation: "common")
-			uncommon:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "u.png"
-					else symbol_variation(symbol: set.symbol, variation: "uncommon")
-			rare:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "r.png"
-					else symbol_variation(symbol: set.symbol, variation: "rare")
-			mythic rare:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "m.png"
-					else symbol_variation(symbol: set.symbol, variation: "mythic rare")
-			special:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "s.png"
-					else symbol_variation(symbol: set.symbol, variation: "special")
-			masterpiece:
-				script:
-					if use_main_rarity() then "/magic-mainframe-extras.mse-include/" + un_png(set.mainframe_rarity_name) + "mp.png"
-					else symbol_variation(symbol: set.masterpiece_symbol, variation: "mythic rare")
+		include file: /magic-modules.mse-include/rarities/choice_images
 	############################# Text boxs
 	text:
 		left: { if (card.level_0 != "" or card.level_1 != "" or card.level_2 != "") then 75 else if is_map() then 40 else 29}
@@ -704,7 +662,8 @@ card style:
 		render style: image
 		popup style: in place
 		alignment: middle center
-		include file: /magic-watermarks.mse-include/watermarks
+		include file:	/magic.mse-game/watermarks/menu_choice_images
+		image:			{ watermark_image_1() }
 	############################# Levels
 	level 0:
 		z index: 7
@@ -856,11 +815,7 @@ extra card field:
 	type: text
 	name: card code
 	save value: false
-	script:
-		if set.automatic_card_numbers and not styling.remove_from_autocount then
-			forward_editor(prefix: card_number_m15() + "/" + card_count_m15() + " " + rarity_code() + " ", field: card.card_code_text)
-		else
-			combined_editor(field1: card.custom_card_number, separator: " " + rarity_code() + " ", field2: card.card_code_text)
+	script: card_code_script(value)
 extra card field:
 	type: choice
 	name: artist arrow
@@ -1183,7 +1138,7 @@ extra card style:
 		width: 40
 		height: 23
 		z index: 3
-		visible: { is_rare() and styling.use_holofoil_stamps and not is_clear()  }
+		visible: { is_stamped() and not is_clear()  }
 		render style: image
 		image: foil_stamp.png
 	foil layer:
@@ -1191,10 +1146,10 @@ extra card style:
 		top : 0
 		width: 375
 		height: 523
-		z index: 3
+		z index: 1050
 		render style: image
 		image: {if styling.overlay == "" then nil else styling.overlay + "/overlay.png"}
-		mask: { "foil_mask" + (if card.pt != "" then "_pt") + (if is_rare() and styling.use_holofoil_stamps then "_rare") + ".png" }
+		mask: { "foil_mask" + (if card.pt != "" then "_pt") + (if is_stamped() then "_rare") + ".png" }
 	auto copyright:
 		right: 350
 		top: { if is_leveler() and not lone_pt() then 488 else if (starting_loyalty() and card.loyalty != "") or (card.pt != "" and not starting_loyalty()) then 500 else 488 }
@@ -1234,7 +1189,7 @@ extra card style:
 		height: 523
 		z index: 1
 		render style: image
-		image: { if is_rare() and styling.use_holofoil_stamps then "clear_rare.png" else "clear.png"}
+		image: { if is_stamped() then "clear_rare.png" else "clear.png"}
 		visible: { is_clear() }
 	map frame:
 		left: 0

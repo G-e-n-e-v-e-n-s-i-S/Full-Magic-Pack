@@ -9,9 +9,9 @@
 0300:	trim			#### Effects like vehicle, nyx, and snow that don't spill over the border
 0400:	pinline			#### Colored pinlines, pride pinlines
 0500:	border			#### Border
-0600:	plate editing	#### Major frame pieces: Transform sym/Lesson/Spree handling, Adventure pages, movable typelines
+0600:	plate editing	#### Major frame pieces: Lesson/Spree handling, Adventure pages, movable typelines
 0700:	watermarking	#### Watermarks, loyalty ability stripes, flavor bar, pop-under art (ex: WAR JP Tamiyo's popout goes under the rarity symbol)
-0800:	attachments		#### Optional frame additions: Crown, ptbox, level arrows, loyalty boxes, stamps, color indicators, alias box, flash dot
+0800:	attachments		#### Optional frame additions: Crown, ptbox, level arrows, loyalty boxes, stamps, color indicators, transformation symbols, alias box, flash dot
 0900:	text			#### Any text, rarity symbol
 1000:	overlays		#### Popout art, foiling and other overlay packages
 1100:	corners			#### These must always be last
@@ -52,13 +52,13 @@ Specific z indexes
 330 Nyx
 
 400 Color pinlines
-410 Pride pinlines
+420 Pride pinlines
 
 500 Card border
+510 The List dot
 
 600 Moveable name/typelines
 610 Name/type caps (spree attachment)
-620 Transform symbol
 620 Adventure page
 640 Leveler backgrounds
 
@@ -70,11 +70,12 @@ Specific z indexes
 
 800 Indicators
 800 Legend crown
-810 Tombstone/alchemy symbol
 830 Loyalty boxes
 840 PT Box, Leveler arrows, Flash dot
 850 Color stamp
 860 Holofoil stamp
+870 Transform symbol
+880 Tombstone/alchemy symbol
 880 Alias box
 
 900 Loyalty cost colons

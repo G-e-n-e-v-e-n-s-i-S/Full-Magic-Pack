@@ -1,7 +1,7 @@
 #### To use this include in a template, add the following in the template headers:
 depends on:
 	package:			magic-modules.mse-include
-	version:			2024-05-20
+	version:			2024-10-01
 
 #### Also add this, unindented, before the card style section:
 include file: /magic-modules.mse-include/namelines/card_fields
@@ -13,6 +13,7 @@ include file: /magic-modules.mse-include/namelines/card_fields_tfc
 #### The transform symbols default to "none", defaults can be changed with
 transform_symbol_default :=
 {
+	stylesheet ## reload script when template changes
 	if		margin_code == "transform1" then	"front triangle"
 	else if	margin_code == "transform2" then	"back triangle"
 	else										"eldrazi"
@@ -56,7 +57,8 @@ transform_symbol_offset_width_1 := { 0 }
 transform_symbol_offset_height_1 := { 0 }
 
 #### You can increase/decrease the amount by which the name shifts left
-#### when a transformation symbol is present on the card:
+#### when a card symbol or a transformation symbol is present on the card:
+name_card_symbol_offset_left_1 := { 0 }
 name_transform_symbol_offset_left_1 := { 0 }
 
 #### For DFC or TFC templates, use:

@@ -1,7 +1,7 @@
 #### To use this include in a template, add the following in the template headers:
 depends on:
 	package:			magic-modules.mse-include
-	version:			2024-05-20
+	version:			2024-10-01
 
 #### Also add this, unindented, before the card style section:
 include file: /magic-modules.mse-include/watermarks/card_fields
@@ -42,6 +42,9 @@ watermark_offset_height_1 := { 0 }
 
 #### To change by how much it moves when a stamp is present:
 watermark_offset_stamp_1 := { 0 }
+
+#### If the textbox is very dark, you can use white watermarks instead of black:
+invert_watermark_1 := { true }
 
 #### For DFC or TFC templates, use:
 watermark_text_field_2 := { 2 }

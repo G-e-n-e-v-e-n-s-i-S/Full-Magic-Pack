@@ -3,7 +3,7 @@
 #### To use this include in a template, add the following in the template headers:
 depends on:
 	package:			magic-modules.mse-include
-	version:			2024-05-20
+	version:			2024-10-01
 
 #### Also add this, unindented, before the card style section:
 include file: /magic-modules.mse-include/symbols/card_fields
@@ -21,6 +21,7 @@ transformation:
 #### The symbols default to "none", defaults can be changed with
 transform_symbol_default :=
 {
+	stylesheet ## reload script when template changes
 	if		margin_code == "transform1" then	"front triangle"
 	else if	margin_code == "transform2" then	"back triangle"
 	else										"eldrazi"
@@ -40,6 +41,9 @@ transform_symbol_offset_height_1 := { 0 }
 
 #### To move the symbol to the right of the card:
 transform_symbol_mirrored_1 := { true }
+
+#### When the symbol is on the right of the card, transform_symbol_offset_left_1's effect if flipped
+#### (Positive numbers will shift to the left)
 
 #### For the other faces on DFCs use:
 transform_symbol_offset_top_2 := { 0 }

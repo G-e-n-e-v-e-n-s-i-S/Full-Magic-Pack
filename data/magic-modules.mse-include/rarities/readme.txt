@@ -3,7 +3,7 @@
 #### To use this include in a template, add the following in the template headers:
 depends on:
 	package:			magic-modules.mse-include
-	version:			2024-05-20
+	version:			2024-10-01
 
 #### Also add this, unindented, before the card style section:
 include file: /magic-modules.mse-include/rarities/card_fields
@@ -16,6 +16,10 @@ include file: /magic-modules.mse-include/rarities/card_fields_tfc
 #### This will add a text option for customizing the colors used by the rarity symbol,
 #### and another to further tweak the positioning of the rarity symbol.
 include file: /magic-modules.mse-include/rarities/styling_fields
+
+#### Inverted common and olduncommon/oldrare can be added with these after the styling fields
+include file: /magic-modules.mse-include/rarities/set_info
+include file: /magic-modules.mse-include/rarities/set_info_old
 
 #### Default Field Placement (@375x523, w=1 h=1)
 rarity:
