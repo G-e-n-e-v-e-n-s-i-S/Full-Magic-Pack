@@ -26,6 +26,14 @@ symbol:
 	image: /magic-modules.mse-include/mana-symbols/alchemy.png
 symbol:
 	code: T
+	image: tap_older.png
+	enabled: { mana_t() == "older" }
+symbol:
+	code: T
+	image: tap_old.png
+	enabled: { mana_t() == "old" }
+symbol:
+	code: T
 	image: tap.png
 symbol:
 	code: Q
