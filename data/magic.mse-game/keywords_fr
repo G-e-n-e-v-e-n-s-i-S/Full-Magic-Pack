@@ -2535,7 +2535,7 @@ keyword:
 keyword:
 	#english keyword: To solve
 	keyword: À résoudre
-	match: À résoudre — <atom-param>Name</atom-param>
+	match: À résoudre — <atom-param>nom</atom-param>
 	reminder: Si l'affaire n'est pas résolue, résolvez-la au début de votre étape de fin.
 	#example: Case of the Crimson Pulse
 
