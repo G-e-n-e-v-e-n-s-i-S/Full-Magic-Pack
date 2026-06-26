@@ -33,7 +33,8 @@ card dpi:			297
 
 init script:
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
-	reminder_uses_light_variant := { true }
+	reminder_uses_light_variant := { false }
+	reminder_multicolor_blend := { "white" }
 	reminder_offset_left := { 0 }
 	reminder_offset_top := { 0 }
 	reminder_offset_width := { 0 }
@@ -56,6 +57,7 @@ init script:
 	casting_cost_transform_symbol_offset_left_1 := { 0 }
 	
 	nameline_offset_top_1 := { -14 }
+
 	casting_cost_offset_top_1 := { 1 }
 	alias_offset_top_1 := { 4 }
 	alias_offset_left_1 := {-21}
