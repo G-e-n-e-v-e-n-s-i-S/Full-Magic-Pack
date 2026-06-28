@@ -617,7 +617,7 @@ extra card style:
 		top:				0
 		width:				{ stylesheet.card_width }
 		height:				{ stylesheet.card_height }
-		z index:			858
+		z index:			818
 		render style:		image
 		image:				{ if is_stamped() then card_stamprim() else card_nonstamprim() }
 	card stamp border:
@@ -625,7 +625,7 @@ extra card style:
 		top:				0
 		width:				{ stylesheet.card_width }
 		height:				{ stylesheet.card_height }
-		z index:			855
+		z index:			815
 		visible:			{ is_stamped() }
 		mask:				border_stamp_mask.png
 	card transform left:

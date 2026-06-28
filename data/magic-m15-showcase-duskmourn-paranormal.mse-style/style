@@ -131,11 +131,13 @@ init script:
 	}
 	card_hybrid_2_h :=
 	{
-		style := card_style.transformation
+		mask :=	if type == "transform" then (style := card_style.transformation; crop("special_blend_card.png", offset_x: style.left, offset_y: style.top, width: style.width, height: style.height))
+				else if type == "reminder" then "special_blend_reminder.png"
+				else "special_blend_card.png"
 		masked_blend(
-			mask:	if type == "transform" then crop("special_blend_card.png", offset_x: style.left, offset_y: style.top, width: style.width, height: style.height) else "special_blend_card.png",
 			dark:	template(colors[0]),
-			light:	template(colors[1])
+			light:	template(colors[1]),
+			mask:	mask
 		)
 	}
 	horizontal_card_hybrid :=
