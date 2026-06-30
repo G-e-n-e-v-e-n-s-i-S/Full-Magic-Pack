@@ -65,8 +65,8 @@ init script:
 	]
 	
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
-	reminder_uses_light_variant := { true }
-	reminder_offset_left := { 0 }
+	reminder_uses_light_variant := { false }
+	reminder_offset_left := { 3 }
 	reminder_offset_top := { 0 }
 	reminder_offset_width := { 0 }
 	reminder_offset_height := { 0 }
@@ -81,9 +81,11 @@ init script:
 	casting_cost_transform_symbol_offset_left_1 := { -5 }
 	
 	alias_colors := { rgb(32, 29, 27) }
+	
 	nameline_offset_top_1 := { 1 }
 	nameline_offset_width_1 := { -2 }
 	nameline_offset_left_1 := { 1 }
+	
 	swap_fonts_name_default :=
 	[
 		name: {"Beleren Bold"},
