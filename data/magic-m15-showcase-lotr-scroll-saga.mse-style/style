@@ -65,7 +65,7 @@ init script:
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
 	reminder_uses_light_variant := { true }
 	reminder_offset_left := { 0 }
-	reminder_offset_top := { 0 }
+	reminder_offset_top := { -72 }
 	reminder_offset_width := { 0 }
 	reminder_offset_height := { 0 }
 	
@@ -244,7 +244,7 @@ init script:
 		
 		active_count := abilities_count() - 1
 		
-		total_max_possible_height := 480
+		total_max_possible_height := if reminder_box_is_visible() then 455 else 480
 		
 		chapter_icon_height := 57
 		chapter_icon_spacing := 8

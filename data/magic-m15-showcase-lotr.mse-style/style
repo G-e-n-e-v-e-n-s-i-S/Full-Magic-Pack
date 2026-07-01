@@ -61,7 +61,7 @@ init script:
 	]
 	
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
-	reminder_uses_light_variant := { true }
+	reminder_uses_light_variant := { false }
 	reminder_offset_left := { 0 }
 	reminder_offset_top := { 0 }
 	reminder_offset_width := { 0 }

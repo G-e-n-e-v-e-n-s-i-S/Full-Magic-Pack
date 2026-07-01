@@ -63,10 +63,10 @@ init script:
 	
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
 	reminder_uses_light_variant := { true }
-	reminder_offset_left := { 0 }
-	reminder_offset_top := { 0 }
-	reminder_offset_width := { 0 }
-	reminder_offset_height := { 0 }
+	reminder_offset_left := { -3 }
+	reminder_offset_top := { -1 }
+	reminder_offset_width := { 8 }
+	reminder_offset_height := { 5 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	#transform_symbol_multicolor_blend := { "black" }
@@ -445,7 +445,7 @@ card style:
 		left:				50
 		top:				{ 570 + chop_top() + body_font_vertical() }
 		right:				{ 594 - chop_right() }
-		bottom:				{ (if reminder_box_is_visible() then 22 else if is_stamped() then 812 else 824) - chop_bottom() }
+		bottom:				{ 824 - chop_bottom() - if reminder_box_is_visible() then 22 else if is_stamped() then 12 else 0 }
 		z index:			900
 		padding left:		6
 		padding right:		4
