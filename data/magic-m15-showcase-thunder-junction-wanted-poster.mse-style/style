@@ -32,23 +32,6 @@ card dpi:			297
 ############################################################## Extra scripts
 
 init script:
-	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
-	reminder_uses_light_variant := { true }
-	reminder_offset_left := { -15.8 }
-	reminder_offset_top := { -34.7 }
-	reminder_offset_width := { -35 }
-	reminder_offset_height := { 51 }
-	reminder_type_offset_top := { 13 }
-	reminder_type_offset_left := { 28 }
-	reminder_type_offset_width := { -36 }
-	reminder_type_font := { body_font() }
-	reminder_cost_offset_top := { 14 }
-	reminder_cost_offset_left := { -12 }
-	reminder_cost_font := { body_font() }
-	
-	information_offset_top_1 := { if reminder_box_is_visible() then 14 else 0 }
-	information_copyright_offset_top_1 := { if reminder_box_is_visible() then -14 else 0 }
-	
 	swap_fonts_pt_default :=
 	[
 		name: {"HelveticaNowText Black"},
@@ -81,10 +64,20 @@ init script:
 	
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
 	reminder_uses_light_variant := { true }
-	reminder_offset_left := { 0 }
-	reminder_offset_top := { 0 }
-	reminder_offset_width := { 0 }
-	reminder_offset_height := { 0 }
+	reminder_offset_left := { -15.8 }
+	reminder_offset_top := { -34.7 }
+	reminder_offset_width := { -35 }
+	reminder_offset_height := { 51 }
+	reminder_type_offset_top := { 13 }
+	reminder_type_offset_left := { 28 }
+	reminder_type_offset_width := { -36 }
+	reminder_type_font := { body_font() }
+	reminder_cost_offset_top := { 14 }
+	reminder_cost_offset_left := { -12 }
+	reminder_cost_font := { body_font() }
+	
+	information_offset_top_1 := { if reminder_box_is_visible() then 14 else 0 }
+	information_copyright_offset_top_1 := { if reminder_box_is_visible() then -14 else 0 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	transform_symbol_modal_uses_normal_background := { true }
