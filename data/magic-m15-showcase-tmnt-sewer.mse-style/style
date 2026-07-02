@@ -67,11 +67,15 @@ init script:
 	]
 	
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
-	reminder_uses_light_variant := { true }
-	reminder_offset_left := { 0 }
+	reminder_uses_light_variant := { false }
+	reminder_offset_left := { -12 }
 	reminder_offset_top := { 0 }
-	reminder_offset_width := { 0 }
+	reminder_offset_width := { -24 }
 	reminder_offset_height := { 0 }
+	reminder_type_offset_left := { -4 }
+	reminder_type_offset_top := { -1 }
+	reminder_type_offset_width := { 6 }
+	reminder_cost_offset_left := { 4 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	transform_symbol_modal_uses_normal_background := { true }
@@ -128,7 +132,6 @@ init script:
 	card_stamp_offset_top_1 := { if stamp_shape() == "triangle" then 6 else 0 }
 	
 	information_copyright_offset_pt_top_1 := { 0 }
-	information_secondary_shift_with_pt_1 := { false }
 	
 	template_prefix :=
 	[

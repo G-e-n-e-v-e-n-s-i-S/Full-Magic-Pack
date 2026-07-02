@@ -75,6 +75,7 @@ init script:
 	reminder_type_offset_left := { -12 }
 	reminder_type_offset_width := { 14 }
 	reminder_cost_offset_left := { 4 }
+	reminder_cost_offset_top := { 1 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	transform_symbol_modal_uses_normal_background := { true }
