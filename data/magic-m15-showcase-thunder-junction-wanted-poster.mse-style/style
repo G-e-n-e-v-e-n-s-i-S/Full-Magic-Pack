@@ -32,6 +32,23 @@ card dpi:			297
 ############################################################## Extra scripts
 
 init script:
+	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
+	reminder_uses_light_variant := { true }
+	reminder_offset_left := { -15.8 }
+	reminder_offset_top := { -34.7 }
+	reminder_offset_width := { -35 }
+	reminder_offset_height := { 51 }
+	reminder_type_offset_top := { 13 }
+	reminder_type_offset_left := { 28 }
+	reminder_type_offset_width := { -36 }
+	reminder_type_font := { body_font() }
+	reminder_cost_offset_top := { 14 }
+	reminder_cost_offset_left := { -12 }
+	reminder_cost_font := { body_font() }
+	
+	information_offset_top_1 := { if reminder_box_is_visible() then 14 else 0 }
+	information_copyright_offset_top_1 := { if reminder_box_is_visible() then -14 else 0 }
+	
 	swap_fonts_pt_default :=
 	[
 		name: {"HelveticaNowText Black"},
@@ -402,7 +419,7 @@ card style:
 		left:				56
 		top:				{ 682 + chop_top() + (if is_stamped() then 3 else 0) + body_font_vertical() }
 		right:				688
-		bottom:				{ 947 - chop_bot() - if reminder_box_is_visible() then 22 else if is_stamped() then 12 else 0 }
+		bottom:				{ 947 - chop_bot() - if reminder_box_is_visible() then 29 else if is_stamped() then 12 else 0 }
 		z index:			900
 		line height hard:	{ if is_modal(card.rule_text) then 0.9 else 1.2 }
 		line height line:	1.5
