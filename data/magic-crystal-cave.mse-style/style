@@ -73,7 +73,7 @@ init script:
 	
 	nameline_offset_top_1 := { 18 }
 	nameline_offset_left_1 := { 15 }
-	nameline_offset_width_1 := { -33 }
+	nameline_offset_width_1 := { -35 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	transform_symbol_modal_uses_normal_background := { false }
@@ -278,7 +278,7 @@ card style:
 		left:				84
 		top:				{ 674 + chop_top() + body_font_vertical() }
 		right:				{ 666 - chop_right() }
-		bottom:				{ 940 - chop_bottom() - if reminder_box_is_visible() then 20 else 0 }
+		bottom:				{ 940 - chop_bottom() - if reminder_box_is_visible() then 12 else 0 }
 		z index:			900
 		line height hard:	{ if is_modal(card.rule_text) then 0.9 else 1.2 }
 		line height line:	1.5
