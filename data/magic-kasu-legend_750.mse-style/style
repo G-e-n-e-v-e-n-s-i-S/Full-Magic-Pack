@@ -30,15 +30,15 @@ card dpi: 300
 init script:
 	reminder_image_folder := { "/" + stylesheet.folder_name + ".mse-style/reminder/" }
 	reminder_uses_light_variant := { false }
-	reminder_offset_left := { 6 }
+	reminder_offset_left := { 22 }
 	reminder_offset_top := { 12 }
-	reminder_offset_width := { -13 }
+	reminder_offset_width := { -40 }
 	reminder_offset_height := { -5 }
 	reminder_type_font_size := { 16 }
-	reminder_type_offset_left := { -5 }
-	reminder_type_offset_width := { 10 }
+	reminder_type_offset_left := { 7 }
+	reminder_type_offset_width := { -14 }
 	reminder_cost_font_size := { 16 }
-	reminder_cost_offset_left := { 5 }
+	reminder_cost_offset_left := { -7 }
 	
 	nameline_offset_left_1 := { 4 }
 	nameline_offset_top_1 := { 4 }
@@ -292,7 +292,7 @@ card style:
 		left:				76
 		top:				{ 666 + chop_top() + body_font_vertical() }
 		right:				674
-		bottom:				{ 940 - chop_bot() - if reminder_box_is_visible() then 6 else 0 }
+		bottom:				{ 940 - chop_bot() - if reminder_box_is_visible() then 4 else 0 }
 		z index:			900
 		line height hard:	{ if is_modal(card.rule_text) then 0.9 else 1.2 }
 		line height line:	1.5
