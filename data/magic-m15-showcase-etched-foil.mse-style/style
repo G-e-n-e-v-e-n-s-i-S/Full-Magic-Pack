@@ -37,7 +37,7 @@ init script:
 	reminder_offset_left := { 0 }
 	reminder_offset_top := { 2 }
 	reminder_offset_width := { 0 }
-	reminder_offset_height := { 0 }
+	reminder_offset_height := { 1 }
 	
 	transform_symbol_image_folder := { "/" + stylesheet.folder_name + ".mse-style/transform/" }
 	transform_symbol_modal_uses_normal_background := { false }

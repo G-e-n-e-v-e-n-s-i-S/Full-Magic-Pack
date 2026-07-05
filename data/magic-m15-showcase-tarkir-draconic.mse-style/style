@@ -350,7 +350,7 @@ card style:
 		left:				57
 		top:				{ 573 + chop_top() + (if is_stamped() then 3 else 0) + body_font_vertical() }
 		right:				{ 589 - chop_right() }
-		bottom:				{ 826 - chop_bottom() - if reminder_box_is_visible() then 28 else if is_stamped() then 5 else 0 }
+		bottom:				{ 826 - chop_bottom() - if reminder_box_is_visible() then 29 else if is_stamped() then 5 else 0 }
 		z index:			900
 		line height hard:	{ if is_modal(card.rule_text) then 0.9 else 1.2 }
 		line height line:	1.5

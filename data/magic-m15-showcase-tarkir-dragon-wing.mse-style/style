@@ -293,7 +293,7 @@ card style:
 		left:				52
 		top:				{ 566 + chop_top() + body_font_vertical() }
 		right:				594
-		bottom:				{ 823 - chop_bot() }
+		bottom:				{ 823 - chop_bot() - if reminder_box_is_visible() then 23 else 0 }
 		z index:			900
 		padding left:		4
 		padding right:		4
