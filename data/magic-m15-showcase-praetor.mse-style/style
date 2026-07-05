@@ -352,7 +352,7 @@ card style:
 		left: 35
 		top: {327-(-chop_top())}
 		width: 305
-		bottom: {473-chop_bot()}
+		bottom: {473-chop_bot() - if reminder_box_is_visible() then 10 else 0 }
 		font:
 			name: {if styling.normal_font then "MPlantin" else "ProgressEngine"}
 			italic name: {if styling.normal_font then "MPlantin-Italic" else "ProgressEngine"}
